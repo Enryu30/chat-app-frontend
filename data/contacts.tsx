@@ -21,7 +21,6 @@ export const contacts = [
     lastMessage: 'Are we still meeting for coffee tomorrow?',
     time: 'Yesterday',
     isOnline: false,
-    wasOnline: true,
     messages: [
       { sender: 'them', text: 'Let’s meet at 10 AM.', time: '10:00 AM', status: 'received' },
       { sender: 'me', text: 'Sounds good! See you there.', time: '10:15 AM', status: 'sent' },
@@ -49,6 +48,8 @@ export const contacts = [
     color: 'bg-pink-200 text-pink-700',
     lastMessage: 'Can you review the budget proposal?',
     time: 'Tuesday',
+    isOnline:false,
+
     messages: [
       { sender: 'them', text: 'I uploaded the budget doc.', time: '9:00 AM', status: 'received' },
       { sender: 'them', text: 'Can you review the budget proposal?', time: '9:15 AM', status: 'received' },
@@ -61,6 +62,8 @@ export const contacts = [
     color: 'bg-green-200 text-green-700',
     lastMessage: 'Thanks for your help with the client!',
     time: 'Monday',
+    isOnline:false,
+
     messages: [
       { sender: 'me', text: 'I covered all their questions.', time: '4:10 PM', status: 'sent' },
       { sender: 'them', text: 'Thanks for your help with the client!', time: '4:15 PM', status: 'received' },
@@ -73,6 +76,8 @@ export const contacts = [
     lastMessage: 'Let’s schedule a call to discuss this.',
     color: 'bg-yellow-200 text-yellow-700',
     time: 'May 25',
+    isOnline:false,
+
     messages: [
       { sender: 'me', text: 'Did you review the notes I shared?', time: '2:00 PM', status: 'sent' },
       { sender: 'them', text: 'Yes, I have a few suggestions.', time: '2:15 PM', status: 'received' },
@@ -96,8 +101,7 @@ export interface ContactType {
   lastMessage: string;
   time: string;
   color: string;
-  isOnline?: boolean;  // required, NOT optional
+  isOnline: boolean;  // required, NOT optional
   messages: Message[];
-  wasOnline?: string; // optional
 }
 
