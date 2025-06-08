@@ -7,7 +7,6 @@ import { setSContact } from "@/store/contactSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const selected = useSelector((state) => state.contact.sContact);
   const allContacts = useSelector((state) => state.contact.allContacts);
 
   // Start collapsed on small screens only
