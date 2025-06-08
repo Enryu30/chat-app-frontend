@@ -1,8 +1,11 @@
 import React from 'react';
+import { RootState } from "@/store"; // Make sure path matches your structure
+
 import { useSelector } from 'react-redux';
 
 const ChatHeader = () => {
-  const sContact = useSelector(state => state.contact.sContact);
+  const sContact = useSelector((state: RootState) => state.contact.sContact);
+
 
   if (!sContact) { // Render nothing if no contact is selected
     return null;

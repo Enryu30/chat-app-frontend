@@ -3,7 +3,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between px-2 fixed top-0 left-0 right-0 bg-white items-center z-50 border-b h-16 py-5 px-5'>
+    <div className='flex justify-between  fixed top-0 left-0 right-0 bg-white items-center z-50 border-b h-16 py-5 px-5'>
       <Image
         src="/next.svg"
         width={50}

@@ -1,13 +1,20 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Contact from "@/components/Contact.jsx";
+import Contact from "./Contact";
 import { useDispatch, useSelector } from "react-redux";
 import { setSContact } from "@/store/contactSlice";
+import { RootState } from "@/store"; // Make sure path matches your structure
+import { Message,ContactType } from "@/data/contacts";
+
+interface ContactProps {
+  contact: ContactType;
+  isCollapsed: boolean;
+}
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const allContacts = useSelector((state) => state.contact.allContacts);
+  const allContacts = useSelector((state: RootState) => state.contact.allContacts);
 
   // Start collapsed on small screens only
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -31,7 +38,7 @@ const Sidebar = () => {
 
   const toggleSidebar = () => setIsCollapsed((prev) => !prev);
 
-  const handleContactSelect = (contact) => {
+  const handleContactSelect = (contact: ContactType) => {
     dispatch(setSContact(contact));
     if (window.innerWidth < 768) {
       setIsCollapsed(true);

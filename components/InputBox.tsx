@@ -1,6 +1,12 @@
 import React from 'react';
 
-const InputBox = ({ newMessage, setNewMessage, handleSend }) => {
+interface InputBoxProps {
+  newMessage: string;
+  setNewMessage: React.Dispatch<React.SetStateAction<string>>;
+  handleSend: () => void;
+}
+
+const InputBox: React.FC<InputBoxProps> = ({ newMessage, setNewMessage, handleSend }) => {
   return (
     <div className="sticky bottom-0 bg-white border-t border-gray-200 px-6 py-4 flex items-center gap-3 shadow-lg rounded-t-lg z-10 pb-20">
       <input

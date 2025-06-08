@@ -1,15 +1,18 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from "@/store"; // Make sure path matches your structure
+
 import { setAllContacts, setSContact } from '@/store/contactSlice';
 import ChatHeader from './ChatHeader';
 import InputBox from './InputBox';
 import Messages from './Messages';
 
 const ChatWindow = () => {
-  const sContact = useSelector(state => state.contact.sContact);
-  const allContacts = useSelector(state => state.contact.allContacts);
-  const dispatch = useDispatch();
+  const sContact = useSelector((state: RootState) => state.contact.sContact);
+  const allContacts = useSelector((state: RootState) => state.contact.allContacts);
+
+const dispatch = useDispatch<AppDispatch>();
 
   const [newMessage, setNewMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);

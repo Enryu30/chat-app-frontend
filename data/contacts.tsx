@@ -80,3 +80,24 @@ export const contacts = [
     ],
   },
 ];
+
+
+export interface Message {
+  sender: string;
+  text: string;
+  time: string;
+  status: string;
+}
+
+export interface ContactType {
+  id: number;
+  name: string;
+  avatar: string;
+  lastMessage: string;
+  time: string;
+  color: string;
+  isOnline?: boolean;  // required, NOT optional
+  messages: Message[];
+  wasOnline?: string; // optional
+}
+

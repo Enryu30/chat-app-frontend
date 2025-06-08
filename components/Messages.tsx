@@ -1,8 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from "@/store";
 
-const Messages = ({ messagesEndRef, isTyping }) => {
-  const sContact = useSelector(state => state.contact.sContact);
+// Define props type
+interface MessagesProps {
+  messagesEndRef: React.RefObject<HTMLDivElement | null>;
+  isTyping: boolean;
+}
+
+const Messages: React.FC<MessagesProps> = ({ messagesEndRef, isTyping }) => {
+  const sContact = useSelector((state: RootState) => state.contact.sContact);
 
   return (
     <div className="flex-1 overflow-hidden">
@@ -17,7 +24,9 @@ const Messages = ({ messagesEndRef, isTyping }) => {
             }`}
           >
             {msg.text}
-            <div className="text-xs text-right mt-1 opacity-70">{msg.time} - {msg.status}</div>
+            <div className="text-xs text-right mt-1 opacity-70">
+              {msg.time} - {msg.status}
+            </div>
           </div>
         ))}
         {isTyping && (

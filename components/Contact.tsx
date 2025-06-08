@@ -1,9 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { ContactType } from "@/data/contacts";
+import { RootState } from "@/store"; // Make sure path matches your structure
 
-const Contact = ({ contact }) => {
 
-  const sContact = useSelector(state => state.contact.sContact);
+interface ContactProps {
+  contact: ContactType;
+  isCollapsed: boolean;
+}
+
+
+const Contact: React.FC<ContactProps> = ({ contact, isCollapsed }) => {
+  
+
+  const sContact = useSelector((state: RootState) => state.contact.sContact);
+
 
   const isSelected = (sContact.id === contact.id);
 
@@ -17,7 +28,7 @@ const Contact = ({ contact }) => {
           </div>
         {contact.isOnline ? (
           <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
-        ) : contact.wasOnline ? (
+        ) : contact.isOnline ? (
           <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-gray-400 border-2 border-white rounded-full"></span>
         ) : null}
 
